@@ -1,17 +1,16 @@
-Name:     fixesproto
-Summary:  X.Org X11 Protocol fixesproto
-Version:  5.0
-Release:  1
-Group:    Development/System
-License:  MIT
-URL:      http://www.x.org
-Source0:  %{name}-%{version}.tar.gz
+Name:           fixesproto
+Version:        5.0
+Release:        1
+License:        MIT
+Summary:        X
+Url:            http://www.x.org
+Group:          Development/System
+Source0:        %{name}-%{version}.tar.bz2
 
+BuildRequires:  pkgconfig
+BuildRequires:  pkgconfig(xorg-macros)
 
-BuildRequires: pkgconfig
-BuildRequires: pkgconfig(xorg-macros)
-
-Requires: xextproto
+Requires:       xextproto
 
 %description
 %{summary}.
@@ -24,7 +23,7 @@ Requires: xextproto
              --libdir=%{_datadir} \
              --without-xmlto
 
-make %{?jobs:-j%jobs}
+make %{?_smp_mflags}
 
 %install
 %make_install
