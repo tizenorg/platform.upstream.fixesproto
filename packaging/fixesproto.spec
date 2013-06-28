@@ -6,6 +6,7 @@ Summary:        X
 Url:            http://www.x.org
 Group:          Development/System
 Source0:        %{name}-%{version}.tar.bz2
+Source1001: 	fixesproto.manifest
 
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(xorg-macros)
@@ -17,6 +18,7 @@ Requires:       xextproto
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure --disable-static \
@@ -31,6 +33,7 @@ make %{?_smp_mflags}
 %remove_docs
 
 %files
+%manifest %{name}.manifest
 %license COPYING
 %defattr(-,root,root,-)
 %{_includedir}/X11/extensions/*.h
