@@ -13,6 +13,10 @@ BuildRequires:  pkgconfig(xorg-macros)
 
 Requires:       xextproto
 
+%if !%{with x}
+ExclusiveArch:
+%endif
+
 %description
 %{summary}.
 
