@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           fixesproto
 Version:        5.0
 Release:        1
